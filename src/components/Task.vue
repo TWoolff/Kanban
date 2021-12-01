@@ -16,10 +16,13 @@ props: ['task'],
      showDetails: false,
      uri: 'http://localhost:3000/tasks/' + this.task.id
    }
- }
+ },
+  methods: {
+   deleteTask() {
+     fetch(this.uri, { method: 'DELETE' })
+      .then(() => this.$emit('delete', this.task.id))
+      .catch(err => console.log(err.message))
+   }
+  }
 }
 </script>
-
-<style>
-
-</style>
