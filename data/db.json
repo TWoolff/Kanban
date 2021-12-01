@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Sæt Gardiner op",
+      "details": "De skal bores op i loftet! ",
+      "state": "todo"
+    },
+    {
+      "id": 2,
+      "title": "Bliv Rask",
+      "details": "Få nok søvn, det hjælper.",
+      "state": "todo"
+    },
+    {
+      "id": 3,
+      "title": "Lav det lort",
+      "details": "Jojow",
+      "state": "doing"
+    },
+    {
+      "id": 4,
+      "title": "Spis mad",
+      "details": "½ jop",
+      "state": "done"  
+    }
+  ]
+}

@@ -1,18 +1,32 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div v-if="tasks.length">
+      <div v-for="task in tasks" :key="task.id">
+        <Task :task="task" />
+      </div>
+    </div>
+    <div v-else>
+      <p>Loading Tasks</p>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Task from '@/components/Task.vue'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  components: { Task },
+  data() {
+    return {
+      tasks: []
+    }
+  },
+  mounted() {
+    fetch('http://localhost:3000/tasks')
+      .then(res => res.json())
+      .then(data => this.tasks = data)
+      .catch(err => console.log(err.message))
   }
 }
 </script>
