@@ -1,12 +1,17 @@
 <template>
-  <div class="task">
-    <h3>{{ task.title }}</h3>
+  <article class="task">
+    <h3 @click="toggleDetails">{{ task.title }}</h3>
+    <div class="details" v-if="showDetails" :toggle="toggleDetails">
     <p>{{ task.details }}</p>
-    <h5>{{ task.state }}</h5>
     <p>{{ task.startDate }}</p>
-    <span class="material-icons">edit</span>
-    <span @click="deleteTask" class="material-icons">delete</span>
-  </div>
+    </div>
+    <div class="icons">
+      <router-link :to="{ name: 'EditTask', params: { id: task.id }}">
+        <span class="material-icons">edit</span>
+      </router-link>
+      <span @click="deleteTask" class="material-icons">delete</span>
+    </div>
+  </article>
 </template>
 
 <script>
@@ -19,10 +24,13 @@ props: ['task'],
    }
  },
   methods: {
-   deleteTask() {
+   deleteTask () {
      fetch(this.uri, { method: 'DELETE' })
       .then(() => this.$emit('delete', this.task.id))
       .catch(err => console.log(err.message))
+   },
+   toggleDetails () {
+     this.showDetails = !this.showDetails
    }
   }
 }

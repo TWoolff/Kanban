@@ -1,8 +1,8 @@
 {
   "tasks": [
     {
-      "title": "DB",
-      "details": "Firebase",
+      "title": "Database",
+      "details": "Firebase database",
       "startDate": "02/12/2021",
       "state": "todo",
       "id": 2
@@ -11,21 +11,21 @@
       "title": "Filter",
       "details": "Filter based on state (todo, doing, done) ",
       "startDate": "02/12/2021",
-      "state": "todo",
+      "state": "done",
       "id": 3
     },
     {
       "title": "Drag and Drop",
       "details": "HTML drag and drop API",
       "startDate": "02/12/2021",
-      "state": "todo",
+      "state": "doing",
       "id": 4
     },
     {
       "title": "Toggle Task Details",
       "details": "v-show onclick title",
       "startDate": "02/12/2021",
-      "state": "todo",
+      "state": "done",
       "id": 5
     },
     {
@@ -48,6 +48,34 @@
       "startDate": "02/12/2021",
       "state": "todo",
       "id": 8
+    },
+    {
+      "title": "EndDate",
+      "details": "Set end date to task when state === 'done' + calculate total time",
+      "startDate": "02/12/2021",
+      "state": "todo",
+      "id": 9
+    },
+    {
+      "title": "Edit Task View",
+      "details": "Create Edit Task View + route on Task",
+      "startDate": "02/12/2021",
+      "state": "done",
+      "id": 10
+    },
+    {
+      "title": "Set Start Date",
+      "details": "New Date() on AddTask",
+      "startDate": "02/12/2021",
+      "state": "done",
+      "id": 11
+    },
+    {
+      "title": "Animations",
+      "details": "animations",
+      "startDate": "02/12/2021",
+      "state": "todo",
+      "id": 12
     }
   ]
 }

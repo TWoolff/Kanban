@@ -1,14 +1,18 @@
 <template>
-  <div class="home">
-    <div v-if="tasks.length">
-      <div v-for="task in tasks" :key="task.id">
-        <Task :task="task" @delete="handleDelete"/>
-      </div>
-    </div>
-    <div v-else>
-      <p>Loading Tasks</p>
-    </div>
-  </div>
+  <section class="home">
+    <section class="to-do">
+      <h2>To Do </h2>
+      <Task :task="task" @delete="handleDelete" v-for="task in toDo" :key="task.id"/>
+    </section>
+    <section class="doing">
+      <h2>Doing </h2>
+      <Task :task="task" @delete="handleDelete" v-for="task in doing" :key="task.id"/>
+    </section>
+    <section class="done">
+      <h2>Done </h2>
+      <Task :task="task" @delete="handleDelete" v-for="task in done" :key="task.id"/>
+    </section>
+  </section>
 </template>
 
 <script>
@@ -33,6 +37,17 @@ export default {
       this.tasks = this.task.filter((task) => {
         return task.id !== id
       })
+    }
+  },
+  computed: {
+    toDo () {
+      return this.tasks.filter(task => task.state === 'todo')
+    },
+    doing () {
+      return this.tasks.filter(task => task.state === 'doing')
+    },
+    done () {
+      return this.tasks.filter(task => task.state === 'done')
     }
   }
 }

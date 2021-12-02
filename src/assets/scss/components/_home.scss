@@ -1,0 +1,27 @@
+.home {
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+
+  h2 {
+    text-align: center;
+  }
+
+  .to-do {
+    .task {
+      border-left: 0.5rem solid $blue;
+    }
+  }
+
+  .doing {
+    .task {
+      border-left: 0.5rem solid $orange;
+    }
+  }
+
+  .done {
+    .task {
+      border-left: 0.5rem solid $red;
+    }
+  }
+}

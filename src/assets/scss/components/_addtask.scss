@@ -1,7 +1,10 @@
-.add-task {
+.add-task, .edit-task {
     background: $white;
-    padding: 20px;
+    padding: 1.5rem;
     border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+
   label {
     display: block;
     color: $grey;
@@ -9,30 +12,34 @@
     font-size: 14px;
     font-weight: bold;
     letter-spacing: 1px;
-    margin: 20px 0 10px 0;
+    margin: 1rem 0;
   }
+
   input {
-    padding: 10px;
+    padding: 1rem;
     border: 0;
     border-bottom: 1px solid $grey;
     width: 100%;
     box-sizing: border-box;
   }
+
   textarea {
     border: 1px solid $grey;
-    padding: 10px;
+    padding: 1rem;
     width: 100%;
     box-sizing: border-box;
-    height: 100px;
+    height: 8rem;
   }
+
   button {
     display: block;
-    margin: 20px auto 0;
+    margin: 1.5rem auto 0;
     background: $purple;
     color: $white;
-    padding: 10px;
+    padding: 0.7rem 1rem;
     border: 0;
     border-radius: 6px;
     font-size: 16px;
+    cursor: pointer;
   }
 }
