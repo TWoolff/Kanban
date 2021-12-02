@@ -1,11 +1,11 @@
 
 .task {
   margin: 20px auto;
-  background: white;
+  background: $white;
   padding: 10px 20px;
   border-radius: 4px;
-  box-shadow: 1px 2px 3px rgba(0,0,0,0.05);
-  border-left: 4px solid #e90074;
+  box-shadow: 1px 2px 3px rgba($black,0.05);
+  border-left: 4px solid $blue;
 
   .actions {
     display: flex;
@@ -15,10 +15,10 @@
   .material-icons {
     font-size: 24px;
     margin-left: 10px;
-    color: #bbb;
+    color:$grey;
     cursor: pointer;
   }
   .material-icons:hover {
-    color: #777;
+    color: $darkgrey;
   }
 }

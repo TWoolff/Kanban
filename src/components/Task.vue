@@ -3,6 +3,7 @@
     <h3>{{ task.title }}</h3>
     <p>{{ task.details }}</p>
     <h5>{{ task.state }}</h5>
+    <p>{{ task.startDate }}</p>
     <span class="material-icons">edit</span>
     <span @click="deleteTask" class="material-icons">delete</span>
   </div>

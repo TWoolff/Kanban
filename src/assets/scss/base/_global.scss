@@ -13,19 +13,14 @@ body {
 }
 
 main {
-  max-width: 1442px;
+  max-width: 600px;
   margin: 0 auto;
-}
-
-p, figure { 
-  margin: 0;
-}
-
-#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  max-width: 600px;
-  margin: 0 auto;
-  color: #555;
+  color: $darkgrey;
+}
+
+p { 
+  margin: 0;
 }

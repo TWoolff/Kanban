@@ -1,10 +1,53 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "title": "Sæt Gardiner op",
-      "details": "De skal bores op i loftet! ",
-      "state": "todo"
+      "title": "DB",
+      "details": "Firebase",
+      "startDate": "02/12/2021",
+      "state": "todo",
+      "id": 2
+    },
+    {
+      "title": "Filter",
+      "details": "Filter based on state (todo, doing, done) ",
+      "startDate": "02/12/2021",
+      "state": "todo",
+      "id": 3
+    },
+    {
+      "title": "Drag and Drop",
+      "details": "HTML drag and drop API",
+      "startDate": "02/12/2021",
+      "state": "todo",
+      "id": 4
+    },
+    {
+      "title": "Toggle Task Details",
+      "details": "v-show onclick title",
+      "startDate": "02/12/2021",
+      "state": "todo",
+      "id": 5
+    },
+    {
+      "title": "Media Queries",
+      "details": "For mobile",
+      "startDate": "02/12/2021",
+      "state": "todo",
+      "id": 6
+    },
+    {
+      "title": "User login",
+      "details": ".",
+      "startDate": "02/12/2021",
+      "state": "todo",
+      "id": 7
+    },
+    {
+      "title": "Refresh list onDelete",
+      "details": "l",
+      "startDate": "02/12/2021",
+      "state": "todo",
+      "id": 8
     }
   ]
 }

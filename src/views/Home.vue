@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div v-if="tasks.length">
-      <div v-for="task in filteredTasks" :key="task.id">
+      <div v-for="task in tasks" :key="task.id">
         <Task :task="task" @delete="handleDelete"/>
       </div>
     </div>
@@ -33,17 +33,6 @@ export default {
       this.tasks = this.task.filter((task) => {
         return task.id !== id
       })
-    }
-  },
-  computed: {
-    filteredTasks () {
-      if (this.current === 'completed') {
-        return this.tasks.filter(task => task.complete)
-      }
-      if (this.current === 'ongoing') {
-        return this.tasks.filter(task => !task.complete)
-      }
-      return this.tasks
     }
   }
 }
