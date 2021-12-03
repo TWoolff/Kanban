@@ -6,6 +6,7 @@
     <p>{{ task.startDate }}</p>
     </div>
     <div class="icons">
+      <span class="material-icons state">bookmark</span>
       <router-link :to="{ name: 'EditTask', params: { id: task.id }}">
         <span class="material-icons">edit</span>
       </router-link>

@@ -18,7 +18,7 @@
       "title": "Drag and Drop",
       "details": "HTML drag and drop API",
       "startDate": "02/12/2021",
-      "state": "doing",
+      "state": "done",
       "id": 4
     },
     {
@@ -46,7 +46,7 @@
       "title": "Refresh list onDelete",
       "details": "l",
       "startDate": "02/12/2021",
-      "state": "todo",
+      "state": "doing",
       "id": 8
     },
     {
@@ -76,6 +76,13 @@
       "startDate": "02/12/2021",
       "state": "todo",
       "id": 12
+    },
+    {
+      "title": "Design",
+      "details": "Make a better designkjhklh",
+      "startDate": "02/12/2021",
+      "state": "done",
+      "id": 13
     }
   ]
 }

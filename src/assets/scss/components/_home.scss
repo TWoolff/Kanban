@@ -7,21 +7,43 @@
     text-align: center;
   }
 
+  .drop-zone {
+    min-height: 2rem;
+  }
+
   .to-do {
     .task {
-      border-left: 0.5rem solid $blue;
+      .state {
+        color: $blue;
+        &:hover {
+          color: $blue; 
+          cursor: default;
+        }
+      }
     }
   }
 
   .doing {
     .task {
-      border-left: 0.5rem solid $orange;
+      .state {
+        color: $orange;
+        &:hover {
+          color: $orange;
+          cursor: default; 
+        }
+      }
     }
   }
 
   .done {
     .task {
-      border-left: 0.5rem solid $red;
+      .state {
+        color: $red;
+        &:hover {
+          color: $red; 
+          cursor: default;
+        }
+      }
     }
   }
 }

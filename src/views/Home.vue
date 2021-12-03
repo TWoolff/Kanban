@@ -1,16 +1,16 @@
 <template>
   <section class="home">
-    <section class="to-do">
-      <h2>To Do </h2>
-      <Task :task="task" @delete="handleDelete" v-for="task in toDo" :key="task.id"/>
+    <section class="to-do drop-zone" @drop="onDrop($event, 'todo')" @dragover.prevent @dragenter.prevent>
+      <h2>To Do</h2>
+      <Task :task="task" @delete="handleDelete" v-for="task in toDo" :key="task.id" class="drag-el" draggable="true" @dragstart="startDrag($event, task)"/>
     </section>
-    <section class="doing">
-      <h2>Doing </h2>
-      <Task :task="task" @delete="handleDelete" v-for="task in doing" :key="task.id"/>
+    <section class="doing drop-zone" @drop="onDrop($event, 'doing')" @dragover.prevent @dragenter.prevent>
+      <h2>Doing</h2>
+      <Task :task="task" @delete="handleDelete" v-for="task in doing" :key="task.id" class="drag-el" draggable="true" @dragstart="startDrag($event, task)"/>
     </section>
-    <section class="done">
-      <h2>Done </h2>
-      <Task :task="task" @delete="handleDelete" v-for="task in done" :key="task.id"/>
+    <section class="done drop-zone" @drop="onDrop($event, 'done')" @dragover.prevent @dragenter.prevent>
+      <h2>Done</h2>
+      <Task :task="task" @delete="handleDelete" v-for="task in done" :key="task.id" class="drag-el" draggable="true" @dragstart="startDrag($event, task)"/>
     </section>
   </section>
 </template>
@@ -27,13 +27,29 @@ export default {
     }
   },
   mounted() {
-    fetch('http://localhost:3000/tasks')
+    fetch('http://localhost:3000/tasks/')
       .then(res => res.json())
       .then(data => this.tasks = data)
       .catch(err => console.log(err.message))
   },
   methods: {
-    handleDelete(id) {
+    startDrag (evt, task) {
+      evt.dataTransfer.dropEffect = 'move'
+      evt.dataTransfer.effectAllowed = 'move'
+      evt.dataTransfer.setData('taskID', task.id)
+    },
+    onDrop (evt, state) {
+      const taskID = evt.dataTransfer.getData('taskID')
+      const task = this.tasks.find(task => task.id == taskID)
+      task.state = state
+
+      fetch('http://localhost:3000/tasks/' + taskID, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ state: state }) 
+      })
+    },
+    handleDelete (id) {
       this.tasks = this.task.filter((task) => {
         return task.id !== id
       })

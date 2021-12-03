@@ -1,1 +1,18 @@
-$base-font: Avenir, Helvetica, Arial, sans-serif;;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+$base-font: Avenir, Helvetica, Arial, sans-serif;
+$header-font: 'Fredoka One', Helvetica, Arial, sans-serif;
+
+h2 {
+  font-family: $header-font;
+  color: $black;
+  text-transform: uppercase;
+  font-size: 60px;
+  letter-spacing: 0px;
+  margin: 0;
+}
+
+h3 {
+  text-transform: uppercase;
+  margin: 0;
+}
