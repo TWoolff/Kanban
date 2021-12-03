@@ -26,7 +26,7 @@ export default {
       tasks: []
     }
   },
-  mounted() {
+  mounted () {
     fetch('http://localhost:3000/tasks/')
       .then(res => res.json())
       .then(data => this.tasks = data)
@@ -50,7 +50,7 @@ export default {
       })
     },
     handleDelete (id) {
-      this.tasks = this.task.filter((task) => {
+      this.tasks = this.tasks.filter((task) => {
         return task.id !== id
       })
     }
