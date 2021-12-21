@@ -3,7 +3,7 @@
     <h3 @click="toggleDetails">{{ task.title }}</h3>
     <div class="details" v-if="showDetails" :toggle="toggleDetails">
       <p>{{ task.details }}</p>
-      <p class="small">Start Date: {{ task.startDate }}</p>
+      <p class="small">Start Date: {{ task.startdate }}</p>
     </div>
     <div class="icons">
       <span class="material-icons state">bookmark</span>
@@ -16,23 +16,25 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
+import { projectFirestore } from '../firebase/config'
+import { ref } from '@vue/reactivity'
+
 export default {
-props: ['task'],
- data () {
-   return {
-     showDetails: false,
-     uri: 'http://localhost:3000/tasks/' + this.task.id
-   }
- },
-  methods: {
-   deleteTask () {
-     fetch(this.uri, { method: 'DELETE' })
-      .then(() => this.$emit('delete', this.task.id))
-      .catch(err => console.log(err.message))
-   },
-   toggleDetails () {
-     this.showDetails = !this.showDetails
-   }
+props: ['task', 'id'],
+setup(props) {
+  const router = useRouter()
+  let showDetails = ref(false)
+  const toggleDetails = () => {
+    showDetails.value = !showDetails.value
   }
+  const deleteTask = async () => {
+    await projectFirestore.collection('tasks').doc(props.id).delete()
+
+    router.push('/')
+  }
+
+  return { deleteTask, showDetails, toggleDetails }
+}
 }
 </script>

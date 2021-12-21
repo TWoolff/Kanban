@@ -16,21 +16,18 @@
 </template>
 
 <script>
+import getTasks from '@/composables/getTasks'
 import Task from '@/components/Task.vue'
 
 export default {
   name: 'Home',
   components: { Task },
-  data() {
-    return {
-      tasks: []
-    }
-  },
-  mounted () {
-    fetch('http://localhost:3000/tasks/')
-      .then(res => res.json())
-      .then(data => this.tasks = data)
-      .catch(err => console.log(err.message))
+  setup () {
+    const { tasks, error, load } = getTasks()
+
+    load()
+
+    return { tasks, error }
   },
   methods: {
     startDrag (evt, task) {

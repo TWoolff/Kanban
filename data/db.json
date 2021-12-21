@@ -83,6 +83,13 @@
       "startDate": "02/12/2021",
       "state": "doing",
       "id": 13
+    },
+    {
+      "title": "Add Task to home",
+      "details": "Add task at end of each state column. + symbol opens up to become input fields for title and details and a add task button.",
+      "startDate": "03/12/2021",
+      "state": "todo",
+      "id": 14
     }
   ]
 }

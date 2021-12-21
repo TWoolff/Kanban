@@ -9,30 +9,32 @@
 </template>
 
 <script>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { projectFirestore} from '../firebase/config'
+
 export default {
-  data () {
-    return {
-      title: '',
-      details: ''
-    }
-  },
-  methods: {
-    handleSubmit () {
-      let task = {
-        title: this.title,
-        details: this.details,
-        startDate: new Date().toLocaleDateString('en-GB'),
+  setup() {
+    const title = ref('')
+    const details = ref('')
+    const startdate = ref('')
+    const state = ref('')
+
+    const router = useRouter()
+
+    const handleSubmit = async () => {
+      const task = {
+        title: title.value,
+        details: details.value,
+        startdate: new Date().toLocaleDateString('en-GB'),
         state: 'todo'
       }
 
-      fetch('http://localhost:3000/tasks/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(task)
-      }).then(() => {
-        this.$router.push('/')
-      }).catch(err => console.log(err.message))
+      const res = await projectFirestore.collection('tasks').add(task)
+      console.log(res)
+      router.push({ name: 'Home' })
     }
+     return { title, details, startdate, state, handleSubmit }
   }
 }
 </script>
